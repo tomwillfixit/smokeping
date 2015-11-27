@@ -26,7 +26,10 @@ Available at http://localhost:85
 
 There are 4 configuration files under the config directory :
 
-services.conf  lighttpd.conf  mod_cgi.conf  smokeping.conf
+services.conf  
+lighttpd.conf  
+mod_cgi.conf  
+smokeping.conf
 
 # services.conf
 
