@@ -4,7 +4,7 @@ Smokeping is a really useful tool to graph network latency over time.
 
 More details about smokeping : http://oss.oetiker.ch/smokeping/
 
-Why run Smokeping this using Docker?
+Why run Smokeping using Docker?
 
 It is portable, simple to run from any docker enabled host and it is relatively lightweight.  There are other smokeping images in DockerHub but this is the first based on Alpine Linux which helped keep the image small.
 
