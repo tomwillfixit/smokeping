@@ -8,10 +8,9 @@ Why run Smokeping using Docker?
 
 It is portable, simple to run from any docker enabled host and it is relatively lightweight.  There are other smokeping images in DockerHub but this is the first based on Alpine Linux which helped keep the image small.
 
-```
 # Build and run Smokeping locally 
 
-Build : 
+Build :
 ```
 docker build -t smokeping:latest .
 ```
