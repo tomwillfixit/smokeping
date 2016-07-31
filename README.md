@@ -1,56 +1,58 @@
 # Smokeping
 
-Smokeping is a really useful tool to graph network latency over time. 
+Smokeping is a tool to graph network latency over time. [Website](http://oss.oetiker.ch/smokeping/)
 
-More details about smokeping : http://oss.oetiker.ch/smokeping/
+# Slack notifications 
 
-Why run Smokeping using Docker?
+To get Slack Notifications when packet loss has been detected then add your Slack auth token and channel name into the following script :
 
-It is portable, simple to run from any docker enabled host and it is relatively lightweight.  There are other smokeping images in DockerHub but this is the first based on Alpine Linux which helped keep the image small.
+[slack_notify.sh] (slack_notify.sh)
 
-# Build and run Smokeping locally 
-
-Build :
+# Build and run smokeping
 ```
-docker build -t smokeping:latest .
+make build
 ```
 
-Run : 
+# Run smokeping
+
+The host ip is used by Slack Notifications :
+
+To change alert criteria update : [slack_notify.sh] (slack_notify.sh)
 ```
-docker run -d -p 85:80 smokeping:latest
+make host=<ip> start
 ```
 
-Available at http://localhost:85
+Available at http://host_ip:85
 
 # Configuration
 
 There are 4 configuration files under the config directory :
-
+```
 services.conf  
 lighttpd.conf  
 mod_cgi.conf  
 smokeping.conf
+```
 
-# services.conf
+## services.conf
 
 This contains a list of services to ping.
 
-# lighttpd.conf and mod_cgi.conf
+## lighttpd.conf and mod_cgi.conf
 
 There should be no need change these unless you wish to change the location of the smokeping.cgi script or maybe update to use fast-cgi.
 
-# smokeping.conf
+## smokeping.conf
 
 The configuration for the smokeping script. 
 
 # Versions
-```
+
 lighttpd : 1.4.36  
 
 smokeping : 2.006011
 
 perl : v5.20.2
-```
 
 # Known Issues
 

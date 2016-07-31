@@ -10,11 +10,11 @@
 
 #Available at http://<server ip>:85
 
-FROM alpine:latest
+FROM alpine:3.4
 
-MAINTAINER thshaw
+MAINTAINER tomwillfixit 
 
-RUN apk add --update smokeping lighttpd perl-cgi && rm -rf /var/cache/apk/*
+RUN apk add --update smokeping lighttpd perl-cgi bash curl bc && rm -rf /var/cache/apk/*
 
 #Creating Directory Structure
 
@@ -32,12 +32,16 @@ RUN mkdir -p /var/www/smokeping/cgi-bin && \
 RUN chown -R lighttpd:lighttpd /usr/data /usr/cache /var/www/smokeping
 RUN chmod -R g+ws /usr/data /usr/cache /var/www/smokeping
 
-# Using prebaked config files since there is alot of variables to be changed.
+# Using prebaked config files since there are alot of variables to be changed.
 
 ADD config/lighttpd.conf /etc/lighttpd/lighttpd.conf
 ADD config/mod_cgi.conf /etc/lighttpd/mod_cgi.conf
 ADD config/smokeping.conf /etc/smokeping/config
 ADD config/services.conf /etc/smokeping/services.conf
+
+ADD slack_notify.sh /tmp/slack_notify.sh
+RUN chmod 777 /tmp/slack_notify.sh
+RUN chown smokeping:smokeping /tmp/slack_notify.sh
 
 ADD entry.sh /tmp/entry.sh
 RUN chmod 777 /tmp/entry.sh
