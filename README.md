@@ -4,9 +4,7 @@ Smokeping is a tool to graph network latency over time. [Website](http://oss.oet
 
 # Slack notifications 
 
-To get Slack Notifications when packet loss has been detected then add your Slack auth token and channel name into the following script :
-
-[slack_notify.sh] (slack_notify.sh)
+To get Slack Notifications when packet loss has been detected then add your Slack auth token and channel name into the following script : [slack_notify.sh](./slack_notify.sh)
 
 # Build and run smokeping
 ```
@@ -17,7 +15,7 @@ make build
 
 The host ip is used by Slack Notifications :
 
-To change alert criteria update : [slack_notify.sh] (slack_notify.sh)
+To change alert criteria update : [slack_notify.sh](./slack_notify.sh)
 ```
 make host=<ip> start
 ```
